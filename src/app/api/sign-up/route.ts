@@ -8,7 +8,8 @@ export async function POST(req: Request){
   await dbConnect()
 
   try {
-      const {username, email, password} = await req.json()
+      const {username, email, password} = await req.json();
+      
       const existingUserVerificationByUsername = await UserModel.findOne({
         username,
         isVerified: true
